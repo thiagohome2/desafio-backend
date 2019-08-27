@@ -2,10 +2,12 @@
 
 # Desafio Backend
 
-Este desafio consiste em criar uma API REST para um marketplace de Discos que será consumida por um aplicativo mobile e uma aplicação web.
-Todos os itens serão colocados em um carrinho de compras e passados para a API para realizar uma transação e-commerce.
+Este desafio consiste em criar uma API REST para um marketplace de DVDs que será consumido por um aplicativo mobile e uma aplicação web.
+Todos os itens serão colocados em um carrinho de compras e enviados para a API realizar uma transação de comércio eletrônico.
 
-Faça o **fork** neste repositório e quando concluir o desafio faça um **pull request** para iniciar a nossa análise.
+## Instruções
+
+Faça o **fork** deste repositório e quando concluir o desafio faça um **pull request**, sinalizando que podemos iniciar a nossa avaliação.
 
 Escolha a tecnologia que achar melhor, contudo, deverá informar quais tecnologias foram usadas, como instalar, rodar e efetuar os acessos no arquivo para análise do desafio.
 
@@ -14,12 +16,12 @@ Esse método deve receber um item novo e persistir no banco de dados.
 ```json
 {
    "product_id":"d2eda25e-9757-11e9-bc42-526af7764f64",
-   "artist":"Pink Floyd",
-   "year":1973,
-   "album":"Dask Side of The Moon",
-   "price":250,
-   "store":"Minha Loja de Discos",
-   "thumb":"https://images-na.ssl-images-amazon.com/images/I/61R7gJadP7L._SX355_.jpg",
+   "title":"Ferris Bueller's Day Off",
+   "year":1986,
+   "director":"John Hughes",
+   "price":130,
+   "store":"Grande Loja de DVDs",
+   "thumb":"https://m.media-amazon.com/images/I/61a0fvXyuWL._AC_UY218_.jpg",
    "date":"26/11/2018"
 }
 ```
@@ -28,8 +30,8 @@ Esse método deve receber um item novo e persistir no banco de dados.
 | Campo       | Tipo    |
 |-------------|---------|
 | product_id  | String  |
-| artist      | String  |
-| year        | Integer |
+| title       | String  |
+| director    | String  |
 | album       | String  |
 | price       | Integer |
 | store       | String  |
@@ -42,32 +44,32 @@ Retornar uma lista de produtos no seguinte formato JSON
 [
   {
     "product_id":"d2eda25e-9757-11e9-bc42-526af7764f64",
-    "artist":"Pink Floyd",
-    "year":1973,
-    "album":"Dask Side of The Moon",
-    "price":250,
-    "store":"Minha Loja de Discos",
-    "thumb":"https://images-na.ssl-images-amazon.com/images/I/61R7gJadP7L._SX355_.jpg",
+    "title":"Ferris Bueller's Day Off",
+    "year":1986,
+    "director":"John Hughes",
+    "price":130,
+    "store":"Grande Loja de DVDs",
+    "thumb":"https://m.media-amazon.com/images/I/61a0fvXyuWL._AC_UY218_.jpg",
     "date":"26/11/2018"
   },
   {
     "product_id":"4a149a9a-9758-11e9-bc42-526af7764f64",
-    "artist":"U2",
-    "year":1993,
-    "album":"Zooropa",
+    "artist":"Cobra",
+    "year":1986,
+    "director":"George P. Cosmatos",
     "price":100,
-    "store":"Super Discos",
-    "thumb":"https://images-na.ssl-images-amazon.com/images/I/81ZmhD2lO8L._SL1200_.jpg",
+    "store":"Super DVD",
+    "thumb":"https://images-na.ssl-images-amazon.com/images/I/714Zaw7zc3L._SX300_.jpg",
     "date":"01/02/2019"
   },
   {
     "product_id":"53f2b33a-9758-11e9-bc42-526af7764f64",
-    "artist":"The Beatles",
-    "year":1969,
-    "album":"Abbey Road",
+    "artist":"Commando",
+    "year":1985,
+    "director":"Mark L. Lester",
     "price":180,
-    "store":"Old School Discos",
-    "thumb":"https://images-na.ssl-images-amazon.com/images/I/919WO8q-nnL._SL1500_.jpg",
+    "store":"DVD Old School",
+    "thumb":"https://images-na.ssl-images-amazon.com/images/I/91AxSyNppIL._UR150,200_FMJPG_.jpg",
     "date":"13/06/2019"
   }
 ]
@@ -78,9 +80,9 @@ Retornar uma lista de produtos no seguinte formato JSON
 | Campo       | Tipo    |
 |-------------|---------|
 | product_id  | String  |
-| artist      | String  |
+| title       | String  |
 | year        | Integer |
-| album       | String  |
+| director    | String  |
 | price       | Integer |
 | store       | String  |
 | thumb       | String  |
@@ -115,13 +117,13 @@ Finalizar a compra.
 {
    "client_id":"fac3591c-9785-11e9-bc42-526af7764f64",
    "cart_id":"c5b6c552-9757-11e9-bc42-526af7764f64",
-   "client_name":"John Snow",
-   "value_to_pay":280,
+   "client_name":"John Mayer",
+   "value_to_pay":130,
    "credit_card":{
       "number":"1234123412341234",
       "cvv":111,
       "exp_date":"06/22",
-      "card_holder_name":"John S",
+      "card_holder_name":"John M",
    }
 }
 ```
@@ -160,7 +162,7 @@ Esse método deve retornar todos as compras realizadas na API
       "client_id":"fac3591c-9785-11e9-bc42-526af7764f64",
       "order_id":"569c30dc-6bdb-407a-b18b-3794f9b206a2",
       "card_number":"**** **** **** 1234",
-      "value":280,
+      "value":130,
       "date":"20/02/2019"
    },
    {
