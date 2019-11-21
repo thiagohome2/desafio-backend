@@ -10,8 +10,4 @@ class History extends Model
         'client_id', 'order_id', 'card_number', 'value', 'date'
     ];
     public $timestamps = false;
-    public function transaction()
-    {
-    	return $this->belongsTo('App\Models\Transaction');
-    }
 }

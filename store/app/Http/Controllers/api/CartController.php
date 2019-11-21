@@ -19,17 +19,17 @@ class CartController extends Controller
         $objectpost = $request->post();
 
         if (!Product::where('product_id', $objectpost['product_id'])->exists()) {
-            return response()->json(['data' => ['message' => 'Produto não encontrado!']], 412);
+            return response()->json(['data' => ['message' => 'Produto não encontrado!']], 503);
         }
 
         if (Cart::where('cart_id', $objectpost['cart_id'])->where('product_id', $objectpost['product_id'])->exists()) {
-            return response()->json(['data' => ['message' => 'O produto ja esta no carrinho!']], 412);
+            return response()->json(['data' => ['message' => 'O produto ja está no carrinho!']], 503);
         }
 
         $cart = new Cart($objectpost);
 
         if (!$cart->save()) {
-            return response()->json(['data' => ['message' => 'Ocorreu um problema no salvamento!']], 422);
+            return response()->json(['data' => ['message' => 'Ocorreu um problema no salvamento!']], 503);
         }
         return response()->json(['data' => ['message' => 'Produto adicionado ao carrinho.']], 201);
 
