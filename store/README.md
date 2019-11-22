@@ -46,7 +46,7 @@
     DB_USERNAME=<seu usuario>
     DB_PASSWORD=<sua senha>
 
-### Execute o seguinte comando no Prompt de Comando para acessar a pasta do repositório.
+### Para instalação do aplicativo (Acesse a pasa do aplicativo)
 
     cd <diretório base do repositório>\desafio-backend\store
 
@@ -54,7 +54,7 @@
 
     composer install
 
-#### 2. Execute o comando para gerar a APP_KEY, (Será inserida automaticamente no arquivo .env)
+#### 2. Execute o comando para gerar a APP_KEY (Será inserida automaticamente no arquivo .env)
 
     php artisan key:generate
 
