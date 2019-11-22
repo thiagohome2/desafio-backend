@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'product_id', 'artist', 'year', 'album', 'price', 'store', 'thumb', 'date'
+        'product_id', 'title','artist', 'year' ,'director','album', 'price', 'store', 'thumb', 'date'
     ];
     public $timestamps = false;
     public function carts()
